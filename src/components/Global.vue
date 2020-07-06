@@ -1,26 +1,10 @@
 <template lang="html">
-  <sui-grid divided="vertically">
-    <sui-divider />
-    <sui-grid-row :columns="2">
-      <sui-grid-column>
-        <Lorem />
-      </sui-grid-column>
-      <sui-grid-column>
-        <Lorem />
-      </sui-grid-column>
-    </sui-grid-row>
-    <sui-grid-row :columns="3">
-      <sui-grid-column>
-        <Lorem />
-      </sui-grid-column>
-      <sui-grid-column>
-        <Lorem />
-      </sui-grid-column>
-      <sui-grid-column>
-        <Lorem />
-      </sui-grid-column>
-    </sui-grid-row>
-  </sui-grid>
+  <div>
+    <b-jumbotron header="BootstrapVue" lead="Bootstrap v4 Components for Vue.js 2">
+      <Lorem />
+      <b-button variant="primary" href="#">More Info</b-button>
+    </b-jumbotron>
+  </div>
 </template>
 
 <script>
