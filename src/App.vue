@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <b-container>
-      <Global />
-    </b-container>
+    <Global />
   </div>
 </template>
 
@@ -20,5 +18,9 @@ export default {
 <style>
 .selector-for-some-widget {
   box-sizing: content-box;
+}
+body {
+  /* background-color: #fafafa!important; */
+  color: #444!important;
 }
 </style>
