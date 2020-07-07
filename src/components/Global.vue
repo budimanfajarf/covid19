@@ -1,5 +1,5 @@
 <template lang="html">
-  <b-container fluid="sm">
+  <b-container fluid>
 
     <b-row class="vh-100 text-center" align-v="center">
       <b-col>
@@ -12,16 +12,84 @@
 
           <b-row class="text-left">
             <b-card class="shadow-card" style="border-radius: 0;">
-              <br />                
-              <Lorem />
+              <b-row align-h="center">
+                <b-col md="8" style="font-size: 110%; letter-spacing: 0.2px; line-height: 1.55">
+                  <!-- <br />                 -->
+                  <p>
+                    <strong style="font-size: 150%;" class="text-success">
+                      {{totalRecoveredPercentText}}
+                    </strong>
+                     of
+                    <!-- <strong> -->
+                      {{totalClosedText}}                      
+                    <!-- </strong>   -->
+                     people who have been infected with the coronavirus before have recovered and survived! 😊
+                  </p>
+                  <p>
+                    Don't spread the fear and believe that humanity can get past this pandemic 💪,
+                    but don't forget that  
+                    <strong class="text-danger">
+                      {{totalDeathsPercentText}}
+                    </strong>
+                    of 
+                    <!-- <strong> -->
+                      {{totalClosedText}}                      
+                    <!-- </strong>  -->
+                    people have died due to this coronavirus 😔 
+                  </p>            
+                  <p>
+                    Cause of that,
+                    <ul>
+                      <li>
+                       Stay healthy 💟
+                      </li>
+                      <li>
+                        Apply social distancing ✋
+                      </li>
+                      <li>
+                        Wear masks 😷
+                      </li>
+                      <li>
+                        and regularly wash your hands 👏
+                      </li>
+                    </ul>
+                  </p>
+                  <p>
+                    Currently there are 
+                    <strong>
+                      {{totalActiveText}}                      
+                    </strong>  
+                    people who are actively infected with the coronavirus, 
+                    let's <strong>pray</strong> for them to get better soon and follow 
+                    <strong class="text-success">
+                      {{totalRecoveredPercentText}}
+                    </strong> 
+                    of those who have recovered 🙏😇
+                  </p>
+
+                </b-col>                
+              </b-row>
             </b-card>
           </b-row>  
+
+          <br />
+                
+          <b-row class="text-right">
+            <b-col>
+              <span class="text-muted">
+                Last updated at: 
+              </span>
+              <span>
+                {{ dateText }}
+              </span>
+            </b-col>
+          </b-row>                
 
           <br />  
 
           <!-- Start Statistic -->
-          <b-row>
-            <b-col>
+          <b-row align-h="center">
+            <b-col md="6">
                 
                 <b-row>
                   <b-col>
@@ -79,30 +147,31 @@
                         </b-col>                        
                       </b-row>   
 
-                      <br />
                       
                       <b-row align-v="center">
 
-                        <b-col cols="7">
+                        <b-col cols="12" sm="7">
+                          <br />
                           <h4 class="text-muted">
                             Recovered
                           </h4>
-                          <h1 style="margin-top: -7px;" class="display-2 text-success font-weight-bold">
+                          <h1 style="margin-top: -6px;" class="display-3 text-success font-weight-bold">
                             {{totalRecoveredPercentText}}
                           </h1> 
-                          <h1 style="margin-top: -17px" class="text-success font-weight-bold">
+                          <h2 style="margin-top: -12.5px">
                             {{totalRecoveredText}}
-                          </h1>   
+                          </h2>   
                         </b-col>   
-
-                        <b-col cols="5">
+                        
+                        <b-col cols="12" sm="5">
+                          <br />
                           <h5 class="text-muted">
                             Deaths
                           </h5>
                           <h1 style="margin-top: -5px;" class="display-4 text-danger font-weight-bold">
                             {{totalDeathsPercentText}}
                           </h1>   
-                          <h4 style="margin-top: -10px;" class="text-danger font-weight-bold">
+                          <h4 style="margin-top: -10px;">
                             {{totalDeathsText}}
                           </h4>   
                         </b-col>    
@@ -115,7 +184,7 @@
 
                 <br />
 
-                <b-row>
+                <!-- <b-row>
                   <b-col>
                     <b-card class="shadow-card">
                       <b-row align-v="center">
@@ -152,13 +221,39 @@
                   </b-col>
                 </b-row>   
 
-                <br />             
+                <br />              -->
 
             </b-col>
           </b-row>
           <!-- End Statistic -->
 
         </main>
+
+        <footer v-if="isLoaded && !error" class="text-center; text-muted">
+          <b-row>
+            <!-- <b-col cols="12"> -->
+            <b-card style="border-radius: 0; width: 100%;" class="shadow-card">
+              <b-row align-h="center">
+                <b-col md="8" style="font-size: 90%">
+                  <a class="text-muted" href="https://github.com/budimanfajarf/covid19" style="text-decoration: underline" rel="noopener" target="_blank">
+                    github
+                  </a> 
+                  /
+                  <a class="text-muted" href="https://api.covid19.budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">
+                    api
+                  </a> 
+                  /
+                  <a class="text-muted" href="https://budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">
+                    author
+                  </a>
+                  <br />                   
+                  2020 · <a class="text-muted" href="/">covid19.budidev.com</a>
+                </b-col>
+              </b-row>
+            </b-card>
+            <!-- </b-col> -->
+          </b-row>
+        </footer>
 
       </b-col>
     </b-row>
@@ -167,13 +262,13 @@
 </template>
 
 <script>
-import Lorem from './Lorem.vue'
+// import Lorem from './Lorem.vue'
 import axios from 'axios'
 
 export default {
   name: 'Global',
   components: {
-    Lorem
+    // Lorem
   },
   data () {
     return {
@@ -213,6 +308,12 @@ export default {
     newDeathsText() {
       return this.numberWithCommas(this.global.newDeaths);
     },
+    dateText() {
+      const d = new Date(this.global.date);
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];      
+      const dateText = `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} · ${("0"+d.getHours()).slice(-2)}:${("0"+d.getMinutes()).slice(-2)}`;
+      return dateText;
+    }
   },
   mounted () {
     axios
