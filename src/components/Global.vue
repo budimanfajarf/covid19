@@ -13,8 +13,10 @@
           <b-row class="text-left">
             <b-card class="shadow-card" style="border-radius: 0;">
               <b-row align-h="center">
-                <b-col md="8" style="font-size: 110%; letter-spacing: 0.2px; line-height: 1.55">
+                <!-- <b-col md="8" style="font-size: 110%; letter-spacing: 0.2px; line-height: 1.55"> -->
+                <b-col md="8">                  
                   <!-- <br />                 -->
+                  <h1 style="font-size: 8vw; margin-bottom: 0.75rem;" class="font-weight-bold">Coronavirus COVID-19</h1>
                   <p>
                     <strong style="font-size: 150%;" class="text-success">
                       {{totalRecoveredPercentText}}
@@ -74,7 +76,7 @@
 
           <br />
                 
-          <b-row class="text-right">
+          <b-row style="font-size: 90%;" class="text-right">
             <b-col>
               <span class="text-muted">
                 Last updated at: 
@@ -235,17 +237,9 @@
             <b-card style="border-radius: 0; width: 100%;" class="shadow-card">
               <b-row align-h="center">
                 <b-col md="8" style="font-size: 90%">
-                  <a class="text-muted" href="https://github.com/budimanfajarf/covid19" style="text-decoration: underline" rel="noopener" target="_blank">
-                    github
-                  </a> 
-                  /
-                  <a class="text-muted" href="https://api.covid19.budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">
-                    api
-                  </a> 
-                  /
-                  <a class="text-muted" href="https://budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">
-                    author
-                  </a>
+                  <a class="text-muted" href="https://github.com/budimanfajarf/covid19" style="text-decoration: underline" rel="noopener" target="_blank">github</a> / 
+                  <a class="text-muted" href="https://api.covid19.budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">api</a> /
+                  <a class="text-muted" href="https://budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">author</a>
                   <br />                   
                   2020 · <a class="text-muted" href="/">covid19.budidev.com</a>
                 </b-col>
