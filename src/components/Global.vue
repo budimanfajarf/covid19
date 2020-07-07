@@ -1,37 +1,43 @@
 <template lang="html">
-  <b-container>
+  <b-container fluid="sm">
+
     <b-row class="vh-100 text-center" align-v="center">
       <b-col>
+
         <b-spinner v-if="!isLoaded" label="Spinning"></b-spinner>
 
         <b-alert v-if="isLoaded && error" show variant="danger">{{ error }}</b-alert>        
 
-        <div v-if="isLoaded && !error">
+        <main v-if="isLoaded && !error">
 
-          <!-- <b-row>
-            <b-col>
+          <b-row class="text-left">
+            <b-card class="shadow-card" style="border-radius: 0;">
+              <br />                
               <Lorem />
-            </b-col>
-            <b-col>2 of 3</b-col>
-            <b-col>3 of 3</b-col>
-          </b-row>     -->
+            </b-card>
+          </b-row>  
 
+          <br />  
+
+          <!-- Start Statistic -->
           <b-row>
             <b-col>
-              <b-card>
-
+                
                 <b-row>
                   <b-col>
-                    <!-- <b-card title="Title">
-                      <b-card-text>10,000 Confirmed</b-card-text>
-                    </b-card>               -->
-                    <h5 class="text-muted">
-                      Total Confirmed
-                    </h5>
+                    <b-card class="shadow-card">
+                      <b-card-text>
+                        <h5 class="text-muted">
+                          Coronavirus Cases
+                        </h5>
 
-                    <h2>
-                      {{totalConfirmedText}}
-                    </h2>                    
+                        <h2>
+                          {{totalConfirmedText}}
+                        </h2> 
+
+                        <small class="text-muted-2">Total confirmed cases</small>
+                      </b-card-text>
+                    </b-card>              
                   </b-col>
                 </b-row>
 
@@ -39,13 +45,19 @@
 
                 <b-row>
                   <b-col>
-                    <h5 class="text-muted">
-                      Active Cases
-                    </h5>
 
-                    <h2>
-                      {{totalActiveText}}
-                    </h2>                     
+                    <b-card class="shadow-card">
+                      <h5 class="text-muted">
+                        Active Cases
+                      </h5>
+
+                      <h2>
+                        {{totalActiveText}}
+                      </h2> 
+
+                      <small class="text-muted-2">Currently Infected Patients</small>
+                    </b-card>
+
                   </b-col>
                 </b-row>
 
@@ -53,77 +65,115 @@
                 
                 <b-row>
                   <b-col>
+                    <b-card class="shadow-card">
 
-                    <!-- <b-card> -->
-                      <!-- <b-row>
+                      <b-row>
                         <b-col>
                           <h5 class="text-muted">
                             Closed Cases
                           </h5>
-
                           <h2>
                             {{totalClosedText}}
-                          </h2>                     
+                          </h2>    
+                          <small class="text-muted-2">Cases which had an outcome</small>
                         </b-col>                        
-                      </b-row>    -->
+                      </b-row>   
 
-                      <!-- <br /> -->
+                      <br />
                       
                       <b-row align-v="center">
-                        <b-col cols="8">
-                          <b-card>
-                          <h4 style="font-size: 7vw" class="text-muted">
+
+                        <b-col cols="7">
+                          <h4 class="text-muted">
                             Recovered
                           </h4>
-                          <h1 style="font-size: 18vw" class="display-2 text-success font-weight-bold">
+                          <h1 style="margin-top: -7px;" class="display-2 text-success font-weight-bold">
                             {{totalRecoveredPercentText}}
                           </h1> 
-
-                          <h1 style="font-size: 8vw; margin-top: -17px">
+                          <h1 style="margin-top: -17px" class="text-success font-weight-bold">
                             {{totalRecoveredText}}
                           </h1>   
-                          </b-card>                  
                         </b-col>   
 
-                        <b-col cols="4">
-                          <b-card>
-                          <h5 style="font-size: 3.5vw" class="text-muted">
+                        <b-col cols="5">
+                          <h5 class="text-muted">
                             Deaths
                           </h5>
-
-                          <h1 style="font-size: 9vw" class="display-4 text-danger font-weight-bold">
+                          <h1 style="margin-top: -5px;" class="display-4 text-danger font-weight-bold">
                             {{totalDeathsPercentText}}
                           </h1>   
-
-                          <h4 style="font-size: 4vw; margin-top: -5px;">
+                          <h4 style="margin-top: -10px;" class="text-danger font-weight-bold">
                             {{totalDeathsText}}
                           </h4>   
+                        </b-col>    
 
-                          </b-card>                  
-                        </b-col>                                                   
                       </b-row>  
 
-                    <!-- </b-card>               -->
+                    </b-card>              
                   </b-col>
                 </b-row>
 
-              </b-card>              
+                <br />
+
+                <b-row>
+                  <b-col>
+                    <b-card class="shadow-card">
+                      <b-row align-v="center">
+
+                        <b-col cols="4">
+                          <h6 style="font-size: 90%;" class="text-muted">
+                            New Confirmed
+                          </h6>
+                          <h3 style="margin-top: -5px;">
+                            {{newConfirmedText}}
+                          </h3> 
+                        </b-col>
+
+                        <b-col cols="5">
+                          <h5 class="text-muted">
+                            New Recovered
+                          </h5>
+                          <h1 style="margin-top: -7.5px;" class="text-success font-weight-bold">
+                            {{newRecoveredText}}
+                          </h1> 
+                        </b-col>
+
+                        <b-col cols="3">
+                          <h6 style="font-size: 90%;" class="text-muted">
+                            New Deaths
+                          </h6>
+                          <h4 style="margin-top: -4px;" class="text-danger font-weight-bold">
+                            {{newDeathsText}}
+                          </h4> 
+                        </b-col>                                                
+
+                      </b-row>
+                    </b-card>              
+                  </b-col>
+                </b-row>   
+
+                <br />             
+
             </b-col>
           </b-row>
-        </div>
+          <!-- End Statistic -->
+
+        </main>
+
       </b-col>
     </b-row>
+
   </b-container>
 </template>
 
 <script>
-// import Lorem from './Lorem.vue'
+import Lorem from './Lorem.vue'
 import axios from 'axios'
 
 export default {
   name: 'Global',
   components: {
-    // Lorem
+    Lorem
   },
   data () {
     return {
@@ -153,7 +203,16 @@ export default {
     },
     totalDeathsPercentText() {
       return this.numberWithPercent(this.global.totalDeathsPercent);
-    }
+    },
+    newConfirmedText() {
+      return this.numberWithCommas(this.global.newConfirmed);
+    },
+    newRecoveredText() {
+      return this.numberWithCommas(this.global.newRecovered);
+    },
+    newDeathsText() {
+      return this.numberWithCommas(this.global.newDeaths);
+    },
   },
   mounted () {
     axios
@@ -182,9 +241,17 @@ export default {
 </script>
 
 <style scoped>
-.card {
+.shadow-card {
   border: none;
   box-shadow: 0 4px 8px 0 #e5e5e5, 0 6px 20px 0 #e5e5e5;  
-  border-radius: 10px;
+}
+.card {
+  border-radius: 5px;
+  border: 1px solid #ededed!important;  
+}
+.text-muted-2 {
+  color: #b5b5b5; 
+  display: block;
+  margin-top: -7px; 
 }
 </style>

@@ -21,6 +21,9 @@ export default {
 }
 body {
   /* background-color: #fafafa!important; */
-  color: #444!important;
+  /* color: #444!important; */
+  /* background-color: #fdfdfd!important; */
+  color: #494f5c!important;
+  background-image: linear-gradient(#fff,#f9f9f9);
 }
 </style>
