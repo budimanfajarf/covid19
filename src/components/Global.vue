@@ -102,13 +102,15 @@
 
     </main>
 
+    <Footer />
+
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Nav from './Nav';
-// import Footer from './Footer';
+import Footer from './Footer';
 import LoadingContent from './LoadingContent';
 import ErrorContent from './ErrorContent';
 import Statistic from './Statistic';
@@ -119,7 +121,7 @@ export default {
   mixins: [functions],
   components: {
     Nav,
-    // Footer,
+    Footer,
     LoadingContent,
     ErrorContent,
     Statistic

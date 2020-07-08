@@ -8,7 +8,7 @@
     left: 0;
     z-index: 999;
     width: 100%;
-    font-size: 135%;
+    font-size: 125%;
     letter-spacing: 1.5px;
   ">
     <b-row>
@@ -22,7 +22,6 @@
           <b-col md="8">
             <a 
               href="#" 
-              style="color:#494f5c;"
               :class="active == 'global' ? 'active': ''"
             >GLOBAL</a> 
             &nbsp;<b-img 
@@ -32,7 +31,7 @@
               width="40px;"
             >
             </b-img>&nbsp;
-            <a href="#" style="color:#494f5c;">COUNTRY</a>
+            <a href="#">COUNTRY</a>
           </b-col>
         </b-row>
       </b-card>
@@ -48,7 +47,21 @@ export default {
 </script>
 
 <style scoped>
-  .active {
+  .card-body {
+    padding: 0.75rem;
+  }  
+  a {
+    color:#494f5c;
+    opacity: .75;
     font-weight: bold;
+    text-decoration: none;
+  }
+  a:hover {
+    color:#494f5c;
+    opacity: 1;
+    /* text-decoration: none; */
+  }
+  .active {
+    opacity: 1;
   }
 </style>
