@@ -20,18 +20,17 @@
         ">
         <b-row align-h="center">
           <b-col md="8">
-            <a 
-              href="#" 
-              :class="active == 'global' ? 'active': ''"
-            >GLOBAL</a> 
-            &nbsp;<b-img 
-              src="/apple-touch-icon.png" 
-              rounded="circle" 
-              alt="Covid19"
-              width="40px;"
-            >
-            </b-img>&nbsp;
-            <a href="#">COUNTRY</a>
+            <router-link 
+              to="/" 
+              :class="currentRoute == 'index' ? 'active': ''"
+            >GLOBAL</router-link> 
+            
+            &nbsp;<b-img src="/apple-touch-icon.png" rounded="circle" alt="Covid19" style="width: 40px; margin: 0 5px;"/>&nbsp;
+
+            <router-link 
+              to="country"
+              :class="currentRoute == 'country' ? 'active': ''"
+            >COUNTRY</router-link>
           </b-col>
         </b-row>
       </b-card>
@@ -42,7 +41,11 @@
 <script>
 export default {
   name: 'Nav',
-  props: ['active']  
+  computed: {
+    currentRoute() {
+      return this.$route.name;
+    }
+  }
 }
 </script>
 
@@ -59,7 +62,7 @@ export default {
   a:hover {
     color:#494f5c;
     opacity: 1;
-    /* text-decoration: none; */
+    text-decoration: underline;
   }
   .active {
     opacity: 1;

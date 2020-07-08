@@ -28,7 +28,7 @@
                 class="font-weight-bold h1-title"                   
                 style="margin-bottom: 0.75rem;
               ">
-                Coronavirus COVID-19
+                Country COVID-19
               </h1>
               <p>
                 <strong 
@@ -111,7 +111,7 @@ import Statistic from './Statistic';
 import functions from '../functions.js';
 
 export default {
-  name: 'Global',
+  name: 'Country',
   mixins: [functions],
   components: {
     LoadingContent,

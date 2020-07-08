@@ -11,58 +11,13 @@
     <link rel="manifest" href="<%= BASE_URL %>site.webmanifest">
     <link rel="mask-icon" href="<%= BASE_URL %>safari-pinned-tab.svg" color="#494f5c">
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <style>
-      .selector-for-some-widget {
-        box-sizing: content-box;
-      }
-      body {
-        color: #494f5c!important;  
-        background-image: linear-gradient(#fff,#f9f9f9);
-      }
-      .shadow-card {
-        border: none;
-        /* box-shadow: 0 4px 8px 0 #e5e5e5, 0 6px 20px 0 #e5e5e5;   */
-        box-shadow: 0px 4px 8px 0 rgba(68, 68, 72, 0.09), 0px 6px 20px 0 rgba(68, 68, 72, 0.09);
-      }
-      .card {
-        border-radius: 5px;
-        border: 1px solid #ededed!important;  
-      }
-      .text-muted-2 {
-        color: #b5b5b5; 
-        display: block;
-        margin-top: -7px; 
-      }
-      
-      @media only screen and (max-width: 576px) {
-        .h1-title {
-          font-size: 8vw; 
-        }
-      }
-      </style>    
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
 
-    <div class="container-fluid">
-      <div class="row text-center align-items-center">
-        <div class="col" 
-          style="
-            min-height: 100vh;
-            position: relative;
-            padding-top: 6em;
-            padding-bottom: 5.5em;
-        ">
-
-          <div id="app">
-            <router-view></router-view>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <div id="app"></div>
 
     <!-- built files will be auto injected -->
   </body>

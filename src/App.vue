@@ -7,13 +7,15 @@
           style="
             min-height: 100vh;
             position: relative;
-            padding-top: 6em;
+            padding-top: 5.5em;
             padding-bottom: 5.5em;
         ">
 
-        <Global />
+        <Nav/>
 
-        <!-- <Footer />  -->
+        <router-view></router-view>
+
+        <Footer /> 
 
         </b-col>
       </b-row>   
@@ -23,14 +25,14 @@
 </template>
 
 <script>
-import Global from './components/Global'
-// import Footer from './components/Footer';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 export default {
   name: 'App',
   components: {
-    Global,
-    // Footer
+    Nav,    
+    Footer
   }
 }
 </script>
