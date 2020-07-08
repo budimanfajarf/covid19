@@ -1,277 +1,128 @@
-<template lang="html">
-  <b-container fluid>
+<template>
+  <div>
+    <LoadingContent v-if="!isLoaded" />
 
+    <ErrorContent 
+      v-if="isLoaded && error" 
+      v-bind:error="error" 
+    />    
+    
+    <Nav active="global" />
 
-    <!-- <b-row class="vh-100 text-center" align-v="center"> -->
-    <b-row class="text-center" align-v="center" style="min-height: 100vh;">      
-      <b-col>
+    <main v-if="isLoaded && !error">
 
-        <b-spinner v-if="!isLoaded" label="Spinning"></b-spinner>
-
-        <b-alert v-if="isLoaded && error" show variant="danger">{{ error }}</b-alert>        
-
-        <nav 
-          class="text-center text-muted;" 
+      <b-row>
+        <b-card 
+          class="text-left" 
           style="
-                 margin-top: -1px; 
-                 position: fixed;
-                 top: 0;
-                 left: 0;
-                 z-index: 999;
-                 width: 100%;
-                 font-size: 135%;
-                 letter-spacing: 1.5px;
-                ">
-          <b-row>
-            <b-card
-              class="shadow-card"             
-              style="border-radius: 0; 
-                     width: 100%; 
-                     ">
-              <b-row align-h="center">
-                <b-col md="8">
-                  <a href="#" style="color:#494f5c;">GLOBAL</a> 
-                  &nbsp;<b-img 
-                    src="/apple-touch-icon.png" 
-                    rounded="circle" 
-                    alt="Covid19"
-                    width="40px;"
-                  >
-                  </b-img>&nbsp;
-                  <a href="#" style="color:#494f5c;">COUNTRY</a>
-                </b-col>
-              </b-row>
-            </b-card>
-          </b-row>
-        </nav>
-        
-        <main v-if="isLoaded && !error">
+            border-radius: 0; 
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            border-top: none!important;
+            border-left: none!important;
+            border-right: none!important;
+        ">
 
-          <b-row>
-            <b-card class="shadow-card" 
-              style="
-                border-radius: 0; 
-                width: 100%;
-              ">
-              <b-row align-h="center text-left">
-                <!-- <b-col md="8" style="font-size: 110%; letter-spacing: 0.2px; line-height: 1.55"> -->
-                <b-col md="6">                  
-                  <br /> <br /> <br />  <br />         
-                  <h1
-                    class="font-weight-bold"                   
-                    style="
-                      /*font-size: 8vw;*/ 
-                      margin-bottom: 0.75rem;
-                    ">
-                    Coronavirus COVID-19
-                  </h1>
-                  <p>
-                    <strong style="font-size: 150%;" class="text-success">
-                      {{totalRecoveredPercentText}}
-                    </strong>
-                     of
-                    <!-- <strong> -->
-                      {{totalClosedText}}                      
-                    <!-- </strong>   -->
-                     people who have been infected with the coronavirus before have recovered and survived! 😊
-                  </p>
-                  <p>
-                    Don't spread the fear and believe that humanity can get past this pandemic 💪,
-                    but don't forget that  
-                    <strong class="text-danger">
-                      {{totalDeathsPercentText}}
-                    </strong>
-                    of 
-                    <!-- <strong> -->
-                      {{totalClosedText}}                      
-                    <!-- </strong>  -->
-                    people have died due to this coronavirus 😔 
-                  </p>            
-                  <p>
-                    Cause of that,
-                    <ul>
-                      <li>
-                       Stay healthy 💟
-                      </li>
-                      <li>
-                        Apply social distancing ✋
-                      </li>
-                      <li>
-                        Wear masks 😷
-                      </li>
-                      <li>
-                        and regularly wash your hands 👏
-                      </li>
-                    </ul>
-                  </p>
-                  <p>
-                    Currently there are 
-                    <strong>
-                      {{totalActiveText}}                      
-                    </strong>  
-                    people who are actively infected with the coronavirus, 
-                    let's <strong>pray</strong> for them to get better soon and follow 
-                    <strong class="text-success">
-                      {{totalRecoveredPercentText}}
-                    </strong> 
-                    of those who have recovered 🙏😇
-                  </p>
-
-                </b-col>                
-              </b-row>
-            </b-card>
-          </b-row>  
-
-          <br />
-                
-          <b-row style="font-size: 90%;" class="text-right" align-h="center">
-            <b-col md="6">
-              <span class="text-muted">
-                Last updated at: 
-              </span>
-              <span>
-                {{ dateText }}
-              </span>
-            </b-col>
-          </b-row>                
-
-          <br />  
-
-          <!-- Start Statistic -->
           <b-row align-h="center">
-            <b-col md="6">
-                
-                <b-row>
-                  <b-col>
-                    <b-card class="shadow-card">
-                      <b-card-text>
-                        <h5 class="text-muted">
-                          Coronavirus Cases
-                        </h5>
+            <b-col md="6">                  
+              <h1
+                class="font-weight-bold h1-title"                   
+                style="margin-bottom: 0.75rem;
+              ">
+                Coronavirus COVID-19
+              </h1>
+              <p>
+                <strong 
+                  class="text-success"
+                  style="font-size: 150%;"
+                >
+                  {{totalRecoveredPercentText}}
+                </strong>
+                  of
+                  {{totalClosedText}}                      
+                  people who have been infected with the coronavirus before have <span class="text-success">recovered</span>! 😊
+              </p>
+              <p>
+                Don't spread the fear and believe that humanity can get past this pandemic 💪,
+                but don't forget that  
+                <strong class="text-danger">
+                  {{totalDeathsPercentText}}
+                </strong>
+                of 
+                  {{totalClosedText}}                      
+                people have died due to this coronavirus 😔 
+              </p>            
+              <p>
+                Cause of that,
+                <ul>
+                  <li>
+                    Stay healthy 💟
+                  </li>
+                  <li>
+                    Apply social distancing ✋
+                  </li>
+                  <li>
+                    Wear masks 😷
+                  </li>
+                  <li>
+                    and regularly wash your hands 👏
+                  </li>
+                </ul>
+              </p>
+              <p>
+                Currently there are 
+                <strong>
+                  {{totalActiveText}}                      
+                </strong>  
+                people who are actively infected with the coronavirus, 
+                let's <strong>pray</strong> for them to get better soon and follow 
+                <strong class="text-success">
+                  {{totalRecoveredPercentText}}
+                </strong> 
+                of those who have recovered 🙏😇
+              </p>
 
-                        <h2>
-                          {{totalConfirmedText}}
-                        </h2> 
-
-                        <small class="text-muted-2">Total confirmed cases</small>
-                      </b-card-text>
-                    </b-card>              
-                  </b-col>
-                </b-row>
-
-                <br />
-
-                <b-row>
-                  <b-col>
-
-                    <b-card class="shadow-card">
-                      <h5 class="text-muted">
-                        Active Cases
-                      </h5>
-
-                      <h2>
-                        {{totalActiveText}}
-                      </h2> 
-
-                      <small class="text-muted-2">Currently Infected Patients</small>
-                    </b-card>
-
-                  </b-col>
-                </b-row>
-
-                <br />
-                
-                <b-row>
-                  <b-col>
-                    <b-card class="shadow-card">
-
-                      <b-row>
-                        <b-col>
-                          <h5 class="text-muted">
-                            Closed Cases
-                          </h5>
-                          <h2>
-                            {{totalClosedText}}
-                          </h2>    
-                          <small class="text-muted-2">Cases which had an outcome</small>
-                        </b-col>                        
-                      </b-row>   
-
-                      
-                      <b-row align-v="center">
-
-                        <b-col cols="12" sm="7">
-                          <br />
-                          <h4 class="text-muted">
-                            Recovered
-                          </h4>
-                          <h1 style="margin-top: -6px;" class="display-3 text-success font-weight-bold">
-                            {{totalRecoveredPercentText}}
-                          </h1> 
-                          <h2 style="margin-top: -12.5px">
-                            {{totalRecoveredText}}
-                          </h2>   
-                        </b-col>   
-                        
-                        <b-col cols="12" sm="5">
-                          <br />
-                          <h5 class="text-muted">
-                            Deaths
-                          </h5>
-                          <h1 style="margin-top: -5px;" class="display-4 text-danger font-weight-bold">
-                            {{totalDeathsPercentText}}
-                          </h1>   
-                          <h4 style="margin-top: -10px;">
-                            {{totalDeathsText}}
-                          </h4>   
-                        </b-col>    
-
-                      </b-row>  
-
-                    </b-card>              
-                  </b-col>
-                </b-row>
-
-                <br />
-
-            </b-col>
+            </b-col>                
           </b-row>
-          <!-- End Statistic -->
 
-        </main>
+        </b-card>
+      </b-row>  
 
-        <footer v-if="isLoaded && !error" class="text-center; text-muted">
-          <b-row>
-            <!-- <b-col cols="12"> -->
-            <b-card style="border-radius: 0; width: 100%;" class="shadow-card">
-              <b-row align-h="center">
-                <b-col md="8" style="font-size: 90%">
-                  <a class="text-muted" href="https://github.com/budimanfajarf/covid19" style="text-decoration: underline" rel="noopener" target="_blank">github</a> / 
-                  <a class="text-muted" href="https://api.covid19.budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">api</a> /
-                  <a class="text-muted" href="https://budidev.com" style="text-decoration: underline" rel="noopener" target="_blank">author</a>
-                  <br />                   
-                  2020 · <a class="text-muted" href="/">covid19.budidev.com</a>
-                </b-col>
-              </b-row>
-            </b-card>
-            <!-- </b-col> -->
-          </b-row>
-        </footer>
+      <Statistic 
+        v-bind:dateText="dateText"
+        v-bind:totalConfirmedText="totalConfirmedText" 
+        v-bind:totalActiveText="totalActiveText"
+        v-bind:totalClosedText="totalClosedText"
+        v-bind:totalRecoveredText="totalRecoveredText"
+        v-bind:totalRecoveredPercentText="totalRecoveredPercentText"
+        v-bind:totalDeathsText="totalDeathsText"
+        v-bind:totalDeathsPercentText="totalDeathsPercentText"          
+      />
 
-      </b-col>
-    </b-row>
+    </main>
 
-  </b-container>
+  </div>
 </template>
 
 <script>
-// import Lorem from './Lorem.vue'
-import axios from 'axios'
+import axios from 'axios';
+import Nav from './Nav';
+// import Footer from './Footer';
+import LoadingContent from './LoadingContent';
+import ErrorContent from './ErrorContent';
+import Statistic from './Statistic';
+import functions from '../functions.js';
 
 export default {
   name: 'Global',
+  mixins: [functions],
   components: {
-    // Lorem
+    Nav,
+    // Footer,
+    LoadingContent,
+    ErrorContent,
+    Statistic
   },
   data () {
     return {
@@ -300,6 +151,7 @@ export default {
       return this.numberWithCommas(this.global.totalDeaths);
     },
     totalDeathsPercentText() {
+      // return numberWithPercentt(this.global.totalDeathsPercent)
       return this.numberWithPercent(this.global.totalDeathsPercent);
     },
     newConfirmedText() {
@@ -331,31 +183,20 @@ export default {
       })
       .finally(() => {
         this.isLoaded = true;
+        // this.error = "something error";
       });
   },
-  methods: {
-    numberWithPercent: (number) => {
-      return `${number}%`;
-    },
-    numberWithCommas: (number) => {
-      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-  }
+  // methods: {
+  //   numberWithPercent: (number) => {
+  //     return `${number}%`;
+  //   },
+  //   numberWithCommas: (number) => {
+  //     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  //   }
+  // }
 };
 </script>
 
 <style scoped>
-.shadow-card {
-  border: none;
-  box-shadow: 0 4px 8px 0 #e5e5e5, 0 6px 20px 0 #e5e5e5;  
-}
-.card {
-  border-radius: 5px;
-  border: 1px solid #ededed!important;  
-}
-.text-muted-2 {
-  color: #b5b5b5; 
-  display: block;
-  margin-top: -7px; 
-}
+
 </style>
