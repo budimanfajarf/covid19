@@ -1,22 +1,70 @@
 <template lang="html">
   <b-container fluid>
 
-    <b-row class="vh-100 text-center" align-v="center">
+
+    <!-- <b-row class="vh-100 text-center" align-v="center"> -->
+    <b-row class="text-center" align-v="center" style="min-height: 100vh;">      
       <b-col>
 
         <b-spinner v-if="!isLoaded" label="Spinning"></b-spinner>
 
         <b-alert v-if="isLoaded && error" show variant="danger">{{ error }}</b-alert>        
 
+        <nav 
+          class="text-center text-muted;" 
+          style="
+                 margin-top: -1px; 
+                 position: fixed;
+                 top: 0;
+                 left: 0;
+                 z-index: 999;
+                 width: 100%;
+                 font-size: 135%;
+                 letter-spacing: 1.5px;
+                ">
+          <b-row>
+            <b-card
+              class="shadow-card"             
+              style="border-radius: 0; 
+                     width: 100%; 
+                     ">
+              <b-row align-h="center">
+                <b-col md="8">
+                  <a href="#" style="color:#494f5c;">GLOBAL</a> 
+                  &nbsp;<b-img 
+                    src="/apple-touch-icon.png" 
+                    rounded="circle" 
+                    alt="Covid19"
+                    width="40px;"
+                  >
+                  </b-img>&nbsp;
+                  <a href="#" style="color:#494f5c;">COUNTRY</a>
+                </b-col>
+              </b-row>
+            </b-card>
+          </b-row>
+        </nav>
+        
         <main v-if="isLoaded && !error">
 
-          <b-row class="text-left">
-            <b-card class="shadow-card" style="border-radius: 0;">
-              <b-row align-h="center">
+          <b-row>
+            <b-card class="shadow-card" 
+              style="
+                border-radius: 0; 
+                width: 100%;
+              ">
+              <b-row align-h="center text-left">
                 <!-- <b-col md="8" style="font-size: 110%; letter-spacing: 0.2px; line-height: 1.55"> -->
-                <b-col md="8">                  
-                  <!-- <br />                 -->
-                  <h1 style="font-size: 8vw; margin-bottom: 0.75rem;" class="font-weight-bold">Coronavirus COVID-19</h1>
+                <b-col md="6">                  
+                  <br /> <br /> <br />  <br />         
+                  <h1
+                    class="font-weight-bold"                   
+                    style="
+                      /*font-size: 8vw;*/ 
+                      margin-bottom: 0.75rem;
+                    ">
+                    Coronavirus COVID-19
+                  </h1>
                   <p>
                     <strong style="font-size: 150%;" class="text-success">
                       {{totalRecoveredPercentText}}
@@ -76,8 +124,8 @@
 
           <br />
                 
-          <b-row style="font-size: 90%;" class="text-right">
-            <b-col>
+          <b-row style="font-size: 90%;" class="text-right" align-h="center">
+            <b-col md="6">
               <span class="text-muted">
                 Last updated at: 
               </span>
@@ -185,45 +233,6 @@
                 </b-row>
 
                 <br />
-
-                <!-- <b-row>
-                  <b-col>
-                    <b-card class="shadow-card">
-                      <b-row align-v="center">
-
-                        <b-col cols="4">
-                          <h6 style="font-size: 90%;" class="text-muted">
-                            New Confirmed
-                          </h6>
-                          <h3 style="margin-top: -5px;">
-                            {{newConfirmedText}}
-                          </h3> 
-                        </b-col>
-
-                        <b-col cols="5">
-                          <h5 class="text-muted">
-                            New Recovered
-                          </h5>
-                          <h1 style="margin-top: -7.5px;" class="text-success font-weight-bold">
-                            {{newRecoveredText}}
-                          </h1> 
-                        </b-col>
-
-                        <b-col cols="3">
-                          <h6 style="font-size: 90%;" class="text-muted">
-                            New Deaths
-                          </h6>
-                          <h4 style="margin-top: -4px;" class="text-danger font-weight-bold">
-                            {{newDeathsText}}
-                          </h4> 
-                        </b-col>                                                
-
-                      </b-row>
-                    </b-card>              
-                  </b-col>
-                </b-row>   
-
-                <br />              -->
 
             </b-col>
           </b-row>
