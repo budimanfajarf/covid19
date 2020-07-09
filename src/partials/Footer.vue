@@ -14,6 +14,7 @@
           border-radius: 0;
           box-shadow: none;
           background-color: #eee;
+          border: none;
         ">
         <b-row align-h="center">
           <b-col md="8" style="font-size: 90%">

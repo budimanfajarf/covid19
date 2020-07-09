@@ -5,18 +5,13 @@ body {
   color: #494f5c!important;  
   background-image: linear-gradient(#fff,#f9f9f9);
 }
-.shadow-card {
-  border: none;
-  /* box-shadow: 0 4px 8px 0 #e5e5e5, 0 6px 20px 0 #e5e5e5;   */
-  /* box-shadow: 0px 4px 8px 0 rgba(68, 68, 72, 0.09), 0px 6px 20px 0 rgba(68, 68, 72, 0.05); */
-  border: 1px solid #dcdcdc;
-}
+
 .card {
   border-radius: 5px;
-  /* border: 1px solid #ededed; */
+  border: 1px solid #ededed;
 }
-footer .shadow-card, nav .shadow-card {
-  border: 1px solid #ededed;  
+nav .shadow-card {
+  border-top: none;
 }
 .text-muted-2 {
   color: #b5b5b5; 
