@@ -10,6 +10,7 @@ export default [
   { 
     name: 'country',
     path: '/country', 
-    component: Country 
+    component: Country,
+    // props: { slug: 'indonesia' }
   },  
 ];

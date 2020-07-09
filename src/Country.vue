@@ -118,10 +118,12 @@ export default {
       if (country) {
         this.isCallCountry = true;
         this.getCountry(country.slug);
-        this.localStorageCountry = country.slug;
+        
+        this.localStorageCountry = country;
       } else {
         this.isLoadedCountry = false;
-        localStorage.removeItem('country');
+
+        this.localStorageCountry = null;
       }
     },
     getCountries() {
@@ -150,6 +152,7 @@ export default {
         .catch((error) => {
           this.error = error
           // this.error = false
+          this.localStorageCountry = null;
         })
         .finally(() => {
           this.isLoadedCountry = true;
@@ -178,7 +181,6 @@ export default {
       return this.numberWithCommas(this.country.totalDeaths);
     },
     totalDeathsPercentText() {
-      // return numberWithPercentt(this.country.totalDeathsPercent)
       return this.numberWithPercent(this.country.totalDeathsPercent);
     },
     newConfirmedText() {
@@ -199,18 +201,28 @@ export default {
   },
   mounted () {
     this.getCountries();
-    
-    if (localStorage.country) {
-      this.selectedCountry = localStorage.country;
-      this.handleSearchCountry({
-        slug: localStorage.country
-      })
-    }  
+
+    if (localStorage.slug && localStorage.country) {
+      const lsCountry = {
+        slug: localStorage.slug,
+        country: localStorage.country,
+      };
+
+      this.selectedCountry = lsCountry;
+      this.handleSearchCountry(lsCountry);
+    }
+
   },
   watch: {
-    localStorageCountry(slug) {
-      localStorage.country = slug;
-    }
+    localStorageCountry(country) {
+      if (country) {
+        localStorage.setItem('slug', country.slug);
+        localStorage.setItem('country', country.country);        
+      } else {
+        localStorage.removeItem('slug');
+        localStorage.removeItem('country');
+      }
+    }    
   }  
 };
 </script>
