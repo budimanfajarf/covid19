@@ -38,8 +38,15 @@
                   {{totalRecoveredPercentText}}
                 </strong>
                   of
-                  {{totalClosedText}}                      
-                  people who have been infected with the coronavirus before have <span class="text-success">recovered</span>! 😊
+                <strong>
+                  {{totalClosedText}}
+                </strong>                      
+                  people who have been infected with the coronavirus before, have been 
+                <span class="text-success">
+                  <strong>
+                    recovered!
+                  </strong>
+                </span> 😊
               </p>
               <p>
                 Don't spread the fear and believe that humanity can get past this pandemic 💪,
@@ -47,9 +54,10 @@
                 <strong class="text-danger">
                   {{totalDeathsPercentText}}
                 </strong>
-                of 
+                <!-- of 
                   {{totalClosedText}}                      
-                people have died due to this coronavirus 😔 
+                people  -->
+                have died due to this coronavirus 😔 
               </p>            
               <p>
                 Cause of that,
