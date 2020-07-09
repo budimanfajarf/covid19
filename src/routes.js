@@ -5,12 +5,11 @@ export default [
   { 
     name: 'index',
     path: '/', 
-    component: Global 
+    component: Global,
   },
   { 
     name: 'country',
     path: '/country', 
     component: Country,
-    // props: { slug: 'indonesia' }
   },  
 ];

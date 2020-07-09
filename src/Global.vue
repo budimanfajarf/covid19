@@ -108,7 +108,7 @@
             
       <b-row style="font-size: 100%; letter-spacing: 0.25px;" class="text-right" align-h="center">
         <b-col md="6">
-          <router-link to="country" style="position: relative;">
+          <router-link to="country" style="position: relative; color: #3b3e48">
             <span style="padding-right: 30px;">
               SEE COUNTRY DATA
             </span>

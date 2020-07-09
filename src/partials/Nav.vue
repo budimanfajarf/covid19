@@ -54,13 +54,13 @@ export default {
     padding: 0.75rem;
   }  
   a {
-    color:#494f5c;
-    opacity: .75;
+    color:#3b3e48;
+    opacity: .8;
     font-weight: bold;
     text-decoration: none;
   }
   a:hover {
-    color:#494f5c;
+    color:#3b3e48;
     opacity: 1;
     text-decoration: underline;
   }

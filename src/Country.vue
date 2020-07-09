@@ -72,7 +72,7 @@
 
       <b-row v-if="isLoadedCountry" style="font-size: 100%; letter-spacing: 0.25px;" class="text-left" align-h="center">
         <b-col md="6">
-          <router-link to="/" style="position: relative;">
+          <router-link to="/" style="position: relative; color: #3b3e48">
             <svg style="position: absolute; left: 5px;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>            
             <span style="padding-left: 30px;">
               SEE GLOBAL DATA
@@ -257,10 +257,12 @@ export default {
     /* text-transform: lowercase;
     font-variant: small-caps; */
     /* border: none; */
+    background-color: #fff;
     color: #494f5c;
     border: 1px solid #ededed;
     border-radius: 5px;
     font-size: 1.1rem;
+    /* box-shadow: 0 1px 1px 0 #e5e5e5, 0 1px 1px 0 #e5e5e5;     */
   }
 
   .style-chooser .vs__dropdown-toggle {
