@@ -110,6 +110,7 @@ export default {
         newDeaths: 0,
         date: new Date().toDateString()
       },      
+      localStorageCountry: null,
     }
   },
   methods: {
@@ -117,8 +118,10 @@ export default {
       if (country) {
         this.isCallCountry = true;
         this.getCountry(country.slug);
+        this.localStorageCountry = country.slug;
       } else {
         this.isLoadedCountry = false;
+        localStorage.removeItem('country');
       }
     },
     getCountries() {
@@ -196,7 +199,19 @@ export default {
   },
   mounted () {
     this.getCountries();
-  }
+    
+    if (localStorage.country) {
+      this.selectedCountry = localStorage.country;
+      this.handleSearchCountry({
+        slug: localStorage.country
+      })
+    }  
+  },
+  watch: {
+    localStorageCountry(slug) {
+      localStorage.country = slug;
+    }
+  }  
 };
 </script>
 
