@@ -17,7 +17,8 @@
           border-radius: 0; 
           width: 100%; 
           box-shadow: none;
-          padding-top: 2.5px;
+          padding-top: 2px;
+          background-color: #fff;
         ">
         <b-row align-h="center">
           <b-col md="8">
@@ -67,5 +68,6 @@ export default {
   }
   .active {
     opacity: 1;
+    text-decoration: underline;
   }
 </style>

@@ -7,8 +7,9 @@ body {
 }
 .shadow-card {
   border: none;
-  box-shadow: 0 4px 8px 0 #e5e5e5, 0 6px 20px 0 #e5e5e5;  
+  /* box-shadow: 0 4px 8px 0 #e5e5e5, 0 6px 20px 0 #e5e5e5;   */
   /* box-shadow: 0px 4px 8px 0 rgba(68, 68, 72, 0.09), 0px 6px 20px 0 rgba(68, 68, 72, 0.05); */
+  border: 1px solid #dcdcdc;
 }
 .card {
   border-radius: 5px;

@@ -129,11 +129,12 @@ import axios from 'axios';
 import LoadingContent from './components/LoadingContent.vue';
 import ErrorContent from './components/ErrorContent.vue';
 import Statistic from './components/Statistic.vue';
-import textNumber from './mixins/textNumber.js';
+import numberFormat from './mixins/numberFormat.js';
+import dateFormat from './mixins/dateFormat.js';
 
 export default {
   name: 'Global',
-  mixins: [textNumber],
+  mixins: [numberFormat, dateFormat],
   components: {
     LoadingContent,
     ErrorContent,
@@ -178,10 +179,7 @@ export default {
       return this.numberWithCommas(this.global.newDeaths);
     },
     dateText() {
-      const d = new Date(this.global.date);
-      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];      
-      const dateText = `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} · ${("0"+d.getHours()).slice(-2)}:${("0"+d.getMinutes()).slice(-2)}`;
-      return dateText;
+      return this.fullDate(this.global.date);
     }
   },
   mounted () {
