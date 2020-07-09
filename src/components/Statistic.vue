@@ -2,7 +2,7 @@
   <div>
     <br />
           
-    <b-row style="font-size: 90%;padding-right: 3px;" class="text-right" align-h="center">
+    <b-row style="font-size: 90%;padding-right: 5px;" class="text-right" align-h="center">
       <b-col md="6">
         <span class="text-muted">
           Last updated at: 
