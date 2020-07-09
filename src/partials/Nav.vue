@@ -2,7 +2,6 @@
   <nav 
   class="text-center text-muted;" 
   style="
-    margin-top: -1px; 
     position: fixed;
     top: 0;
     left: 0;
@@ -17,6 +16,8 @@
         style="
           border-radius: 0; 
           width: 100%; 
+          box-shadow: none;
+          padding-top: 2.5px;
         ">
         <b-row align-h="center">
           <b-col md="8">

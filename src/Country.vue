@@ -42,7 +42,7 @@
                 v-if="isLoadedCountry"
                 class="font-weight-bold h1-title"                   
                 style="
-                  margin-bottom: 0.25rem;
+                  margin-bottom: 0px;
                   margin-top: 0.25rem;
                   line-height: 1.4;
               ">
@@ -257,12 +257,11 @@ export default {
     /* text-transform: lowercase;
     font-variant: small-caps; */
     /* border: none; */
-    background-color: #fff;
+    background-color: #eee;
     color: #494f5c;
     border: 1px solid #ededed;
     border-radius: 5px;
     font-size: 1.1rem;
-    /* box-shadow: 0 1px 1px 0 #e5e5e5, 0 1px 1px 0 #e5e5e5;     */
   }
 
   .style-chooser .vs__dropdown-toggle {

@@ -12,10 +12,12 @@
         class="shadow-card"
         style="
           border-radius: 0;
+          box-shadow: none;
+          background-color: #eee;
         ">
         <b-row align-h="center">
           <b-col md="8" style="font-size: 90%">
-            <a class="text-muted" href="https://github.com/budimanfajarf/covid19" rel="noopener" target="_blank">github</a> / 
+            <a class="text-muted" href="https://github.com/budimanfajarf/covid19" rel="noopener" target="_blank">repository</a> / 
             <a class="text-muted" href="https://api.covid19.budidev.com" rel="noopener" target="_blank">api</a> /
             <a class="text-muted" href="https://budidev.com" rel="noopener" target="_blank">author</a>
             <br />                   
