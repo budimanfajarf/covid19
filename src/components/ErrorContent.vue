@@ -11,6 +11,8 @@
 <script>
 export default {
   name: 'ErrorContent',
-  props: ['error']
+  props: {
+    error: String
+  }
 }
 </script>

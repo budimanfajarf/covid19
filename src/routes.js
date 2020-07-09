@@ -1,5 +1,5 @@
-import Global from './components/Global.vue';
-import Country from './components/Country.vue';
+import Global from './Global.vue';
+import Country from './Country.vue';
 
 export default [
   { 

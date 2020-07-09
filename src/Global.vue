@@ -113,14 +113,14 @@
 
 <script>
 import axios from 'axios';
-import LoadingContent from './LoadingContent';
-import ErrorContent from './ErrorContent';
-import Statistic from './Statistic';
-import functions from '../functions.js';
+import LoadingContent from './components/LoadingContent.vue';
+import ErrorContent from './components/ErrorContent.vue';
+import Statistic from './components/Statistic.vue';
+import textNumber from './mixins/textNumber.js';
 
 export default {
   name: 'Global',
-  mixins: [functions],
+  mixins: [textNumber],
   components: {
     LoadingContent,
     ErrorContent,
@@ -153,7 +153,6 @@ export default {
       return this.numberWithCommas(this.global.totalDeaths);
     },
     totalDeathsPercentText() {
-      // return numberWithPercentt(this.global.totalDeathsPercent)
       return this.numberWithPercent(this.global.totalDeathsPercent);
     },
     newConfirmedText() {

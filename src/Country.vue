@@ -75,14 +75,14 @@
 
 <script>
 import axios from 'axios';
-import LoadingContent from './LoadingContent';
-import ErrorContent from './ErrorContent';
-import Statistic from './Statistic';
-import functions from '../functions.js';
+import LoadingContent from './components/LoadingContent.vue';
+import ErrorContent from './components/ErrorContent.vue';
+import Statistic from './components/Statistic.vue';
+import textNumber from './mixins/textNumber.js';
 
 export default {
   name: 'Country',
-  mixins: [functions],
+  mixins: [textNumber],
   components: {
     LoadingContent,
     ErrorContent,
@@ -218,11 +218,11 @@ export default {
     color: #494f5c;
     border: 1px solid #ededed;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .style-chooser .vs__dropdown-toggle {
-    padding: 5px 10px 10px;
+    padding: 3.5px 7px 7px;
   }
 
   .style-chooser .vs__clear,
