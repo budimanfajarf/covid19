@@ -22,6 +22,7 @@ export default {
       width: 100%;    
       padding: 1rem;
       /* background: #eee; */
+      font-size: 90%;
   }
 
   a {

@@ -6,7 +6,7 @@
       style="font-size: 90%; padding-right: 5px;
     ">
       <b-col md="6">
-        <span class="text-muted">
+        <span class="text-muted-2">
           Last updated at: 
         </span>
         <span>
@@ -35,7 +35,7 @@
                   {{totalConfirmedText}}
                 </h2> 
 
-                <small class="text-muted-2">Total confirmed cases</small>
+                <small class="text-muted-2 label-2">Total confirmed cases</small>
               </b-card-text>
             </b-card>   
 
@@ -54,7 +54,7 @@
                 {{totalActiveText}}
               </h2> 
 
-              <small class="text-muted-2">Currently Infected Patients</small>
+              <small class="text-muted-2 label-2">Currently Infected Patients</small>
             </b-card>
 
             <br />
@@ -73,7 +73,7 @@
                   <h2>
                     {{totalClosedText}}
                   </h2>    
-                  <small class="text-muted-2">Cases which had an outcome</small>
+                  <small class="text-muted-2 label-2">Cases which had an outcome</small>
                 </b-col>                        
               </b-row>   
 

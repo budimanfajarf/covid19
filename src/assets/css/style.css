@@ -21,9 +21,13 @@ body {
 }
 
 .text-muted-2 {
-  color: #b5b5b5; 
+  /* color: #b5b5b5;  */
+  color: #9ca5ad;
+}
+
+.label-2 {
   display: block;
-  margin-top: -7px; 
+  margin-top: -7px;  
 }
 
 a {

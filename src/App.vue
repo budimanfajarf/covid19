@@ -62,8 +62,8 @@ export default {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-  .wrapper {
-    /* padding-top: 8em; */
-  }  
+  /* .wrapper {
+    padding-top: 8em;
+  }   */
 }
 </style>
