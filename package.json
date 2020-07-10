@@ -1,11 +1,12 @@
 {
-  "name": "covid19",
-  "version": "0.1.0",
+  "name": "coronavirus-covid19",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "sitemap": "vue-cli-service sitemap"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -24,6 +25,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "vue-cli-plugin-sitemap": "~2.2.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -44,5 +46,19 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/budimanfajarf/covid19.git"
+  },
+  "keywords": [
+    "coronavirus",
+    "covid19",
+    "vue"
+  ],
+  "author": "budimanfajarf",
+  "bugs": {
+    "url": "https://github.com/budimanfajarf/covid19/issues"
+  },
+  "homepage": "https://github.com/budimanfajarf/covid19#readme"
 }

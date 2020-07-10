@@ -1,21 +1,19 @@
-import Global from './Global.vue';
-import Country from './Country.vue';
-import NotFound from './NotFound.vue';
-
-export default [
-  { 
-    name: 'index',
-    path: '/', 
-    component: Global,
+// src/routes.js
+ 
+module.exports = [
+  {
+      path: '/',
+      name: 'Global',
+      component: () => import(/* webpackChunkName: "home" */ './Global')
   },
-  { 
-    name: 'country',
-    path: '/country', 
-    component: Country,
+  {
+      path: '/country',
+      name: 'Country',
+      component: () => import(/* webpackChunkName: "about" */ './Country')
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "about" */ './NotFound')
   },  
-  { 
-    name: 'notfound',
-    path: "*", 
-    component: NotFound 
-  }  
-];
+]

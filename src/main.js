@@ -22,7 +22,8 @@ Vue.component('v-select', vSelect);
 
 const router = new VueRouter({
   routes, // short for `routes: routes`
-  mode: 'history'
+  mode: 'history',
+  base: process.env.BASE_URL,
 });
 
 new Vue({
