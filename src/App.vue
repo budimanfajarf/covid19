@@ -11,7 +11,7 @@
             padding-bottom: 5.25em;
         ">
 
-        <Nav/>
+        <!-- <Nav/> -->
 
         <router-view></router-view>
 
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import Nav from './partials/Nav.vue';
+// import Nav from './partials/Nav.vue';
 import Footer from './partials/Footer.vue';
 
 export default {
   name: 'App',
   components: {
-    Nav,    
+    // Nav,    
     Footer
   }
 }

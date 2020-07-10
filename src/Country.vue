@@ -226,7 +226,7 @@ export default {
       this.isCallCountry = true;
       setTimeout(() => {
         this.handleSearchCountry(lsCountry);
-      }, 1250);
+      }, 1500);
     }
 
   },

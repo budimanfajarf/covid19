@@ -11,14 +11,16 @@
     letter-spacing: 1.5px;
   ">
     <b-row>
-      <b-card
-        class="shadow-card"             
+      <b-card           
         style="
           border-radius: 0; 
           width: 100%; 
-          box-shadow: none;
           padding-top: 2px;
-          background-color: #fff;
+          border-top: none;
+          border: none;
+          box-shadow: 0px 1.5px 2px 0px rgba(0,0,0,0.025);
+          box-shadow: none;
+          background-color: #718093;
         ">
         <b-row align-h="center">
           <b-col md="8">
@@ -56,13 +58,15 @@ export default {
     padding: 0.75rem;
   }  
   a {
-    color:#3b3e48;
+    /* color:#3b3e48; */
+    color: #fff;
     opacity: .8;
     font-weight: bold;
     text-decoration: none;
   }
   a:hover {
-    color:#3b3e48;
+    /* color:#3b3e48; */
+    color: #fff;
     opacity: 1;
     text-decoration: underline;
   }
