@@ -1,6 +1,7 @@
 import routes from './routes.js';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueMeta from 'vue-meta';
 import { BootstrapVue, /* IconsPlugin */ } from 'bootstrap-vue';
 import vSelect from 'vue-select';
 import App from './App.vue';
@@ -13,13 +14,15 @@ import './assets/css/style.css';
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(VueMeta);
 Vue.use(BootstrapVue);
 // Vue.use(IconsPlugin);
 
 Vue.component('v-select', vSelect);
 
 const router = new VueRouter({
-  routes // short for `routes: routes`
+  routes, // short for `routes: routes`
+  mode: 'history'
 });
 
 new Vue({

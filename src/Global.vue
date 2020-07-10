@@ -178,7 +178,10 @@ export default {
         this.isLoaded = true;
         // this.error = "something error";
       });
-  }
+  },
+  metaInfo: {
+    title: 'Global'
+  } 
 };
 </script>
 

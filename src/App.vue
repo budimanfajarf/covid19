@@ -23,7 +23,13 @@ export default {
   components: {
     Nav2,    
     Footer
-  }
+  },
+  metaInfo: {
+    // if no subcomponents specify a metaInfo.title, this title will be used
+    title: '😷',
+    // all titles will be injected into this template
+    titleTemplate: '%s - Coronavirus - covid19.budidev.com'
+  }   
 }
 </script>
 

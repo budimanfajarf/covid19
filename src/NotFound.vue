@@ -1,25 +1,22 @@
-<template>   
-  <b-row align-h="center" align-v="center" style="min-height: 65vh; letter-spacing: 1.5px">
+<template>
+  <b-row align-h="center" align-v="center" style="min-height: 65vh; letter-spacing: 1.5px;">
     <b-col md="6">   
       <b-alert show variant="secondary" class="text-center">
         <br />
-        <h5>
-          {{ error }}
-        </h5>
-        <p style="margin-top: 1.5em;">
+        <h1 class="h1-title" style="font-weight: normal;">
+          404 - NOT FOUND
+        </h1>
+        <p style="margin-top: 1.5em">
           Back to 
           <router-link to="/" class="alert-link">Home</router-link>          
         </p>
      </b-alert>      
     </b-col>
-  </b-row>   
+  </b-row> 
 </template>
 
 <script>
 export default {
-  name: 'ErrorContent',
-  props: {
-    error: String
-  }
+  name: 'Not Found'
 }
 </script>

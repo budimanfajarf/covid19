@@ -85,7 +85,6 @@ export default {
       isLoaded: false,
       error: null,
       selectedCountry: null,
-      // selectedCountry: 'canada',      
       countries: [],
       isCallCountry: false,
       isLoadedCountry: false,
@@ -103,6 +102,7 @@ export default {
         date: new Date().toDateString()
       },      
       localStorageCountry: null,
+      title: 'Country',
     }
   },
   methods: {
@@ -126,7 +126,6 @@ export default {
         })
         .catch((error) => {
           this.error = error
-          // this.error = false
         })
         .finally(() => {
           this.isLoaded = true;
@@ -137,19 +136,16 @@ export default {
       axios
         .get(`https://api.covid19.budidev.com/v1/countries/${slug}`)
         .then((response) => {
-          // console.log(response);
           this.country = response.data;
           this.country.totalClosed = this.country.totalConfirmed - this.country.totalActive;
         })
         .catch((error) => {
           this.error = error
-          // this.error = false
           this.localStorageCountry = null;
         })
         .finally(() => {
           this.isLoadedCountry = true;
           this.isCallCountry = false;
-          // this.error = "something error";
         });      
     }
   },
@@ -215,8 +211,20 @@ export default {
         localStorage.removeItem('slug');
         localStorage.removeItem('country');
       }
-    }    
-  }  
+    },
+    selectedCountry(selected) {
+      if (selected) {
+        this.title = selected.country;
+      } else {
+        this.title = 'Country'; 
+      }
+    }
+  },  
+  metaInfo () {
+    return {
+      title: this.title
+    }
+  }
 };
 </script>
 

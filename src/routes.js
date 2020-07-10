@@ -1,5 +1,6 @@
 import Global from './Global.vue';
 import Country from './Country.vue';
+import NotFound from './NotFound.vue';
 
 export default [
   { 
@@ -12,4 +13,9 @@ export default [
     path: '/country', 
     component: Country,
   },  
+  { 
+    name: 'notfound',
+    path: "*", 
+    component: NotFound 
+  }  
 ];
