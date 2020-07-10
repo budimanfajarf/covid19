@@ -7,7 +7,7 @@
     ">
       <b-col md="6">
         <span class="text-muted-2">
-          Last updated at: 
+          Last updated: 
         </span>
         <span>
           {{ dateText }}
