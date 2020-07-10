@@ -222,7 +222,11 @@ export default {
       };
 
       this.selectedCountry = lsCountry;
-      this.handleSearchCountry(lsCountry);
+
+      this.isCallCountry = true;
+      setTimeout(() => {
+        this.handleSearchCountry(lsCountry);
+      }, 1250);
     }
 
   },
