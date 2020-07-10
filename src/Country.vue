@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <LoadingContent v-if="!isLoaded" />
 
     <ErrorContent 
@@ -7,52 +7,30 @@
       v-bind:error="error" 
     />    
 
-    <main v-if="isLoaded && !error">
+    <div v-if="isLoaded && !error">
 
-      <b-row>
-        <b-card 
-          class="text-left" 
-          style="
-            border-radius: 0; 
-            width: 100%;
-            border: none;
-            background-color: transparent;
-            border-top: none!important;
-            border-left: none!important;
-            border-right: none!important;
-        ">
+      <b-row align-h="center">
+        <b-col md="6">
 
-          <b-row align-h="center">
-            <b-col md="6">
+          <v-select 
+            class="style-chooser"
+            placeholder="Where are you from?"
+            :options="countries"
+            label="country"                           
+            v-model="selectedCountry"
+            :value="selectedCountry" 
+            @input="handleSearchCountry"
+            style="margin-top: 0.5rem;"
+          >
+          </v-select>
 
-              <v-select 
-                class="style-chooser"
-                placeholder="Where are you from?"
-                :options="countries"
-                label="country"                           
-                v-model="selectedCountry"
-                :value="selectedCountry" 
-                @input="handleSearchCountry"
-              >
-              </v-select>
+          <br />
 
-              <br />
-
-              <h1
-                v-if="isLoadedCountry"
-                class="font-weight-bold h1-title"                   
-                style="
-                  margin-bottom: 0px;
-                  margin-top: 0.25rem;
-                  line-height: 1.4;
-              ">
-                COVID-19 in {{ selectedCountry.country }}
-              </h1>
-            </b-col>                
-          </b-row>
-
-        </b-card>
-      </b-row>  
+          <h1 v-if="isLoadedCountry" class="h1-title">
+            COVID-19 in {{ selectedCountry.country }}
+          </h1>
+        </b-col>                
+      </b-row>
 
       <LoadingContent v-if="isCallCountry" />
 
@@ -68,8 +46,6 @@
         v-bind:totalDeathsPercentText="totalDeathsPercentText"          
       />
 
-      <!-- <br v-if="!isLoadedCountry" /> -->
-
       <b-row v-if="isLoadedCountry" style="font-size: 100%; letter-spacing: 0.25px;" class="text-left" align-h="center">
         <b-col md="6">
           <router-link to="/" style="position: relative; color: #3b3e48">
@@ -83,9 +59,9 @@
 
       <br />
 
-    </main>
+    </div>
 
-  </div>
+  </main>
 </template>
 
 <script>
@@ -226,7 +202,7 @@ export default {
       this.isCallCountry = true;
       setTimeout(() => {
         this.handleSearchCountry(lsCountry);
-      }, 1500);
+      }, 2000);
     }
 
   },

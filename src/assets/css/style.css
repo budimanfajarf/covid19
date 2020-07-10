@@ -1,10 +1,9 @@
 .selector-for-some-widget {
   box-sizing: content-box;
 }
+
 body {
-  color: #494f5c!important;  
-  /* background-image: linear-gradient(#fff,#f9f9f9); */
-  /* background-image: linear-gradient(#f9f9f9, #fff);   */
+  color: #494f5c!important;
   background-color: #fff;
 }
 
@@ -39,7 +38,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 .bg-img {
   background-image: url(/background.png);  
   width: 100vw;
@@ -53,6 +51,18 @@ a:hover {
   background-size: cover;
   background-position: 50%;
   transition: opacity .5s;      
+}
+
+.h1-title {
+  font-weight: 600;
+}
+
+.text-success {
+  color: #66BB6A!important;
+}
+
+.text-danger {
+  color: #FF7043!important;
 }
 
 @media only screen and (max-width: 576px) {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <LoadingContent v-if="!isLoaded" />
 
     <ErrorContent 
@@ -7,92 +7,73 @@
       v-bind:error="error" 
     />    
 
-    <main v-if="isLoaded && !error">
+    <div v-if="isLoaded && !error">
 
-      <b-row>
-        <b-card 
-          class="text-left" 
-          style="
-            border-radius: 0; 
-            width: 100%;
-            border: none;
-            background-color: transparent;
-            border-top: none!important;
-            border-left: none!important;
-            border-right: none!important;
-        ">
+      <b-row align-h="center">
+        <b-col md="6">                  
+          <h1 class="h1-title">
+            Coronavirus COVID-19
+          </h1>
+          <p>
+            <strong 
+              class="text-success"
+              style="font-size: 150%;"
+            >
+              {{totalRecoveredPercentText}}
+            </strong>
+              of
+            <strong>
+              {{totalClosedText}}
+            </strong>                      
+              people who have been infected with the coronavirus before, have been 
+            <span class="text-success">
+              <strong>
+                recovered!
+              </strong>
+            </span> 😊
+          </p>
+          <p>
+            Don't spread the fear and believe that humanity can get past this pandemic 💪,
+            but don't forget that  
+            <strong class="text-danger">
+              {{totalDeathsPercentText}}
+            </strong>
+            <!-- of 
+              {{totalClosedText}}                      
+            people  -->
+            have died due to this coronavirus 😔 
+          </p>            
+          <p>
+            Cause of that,
+            <ul>
+              <li>
+                Stay healthy 💟
+              </li>
+              <li>
+                Apply social distancing ✋
+              </li>
+              <li>
+                Wear masks 😷
+              </li>
+              <li>
+                and regularly wash your hands 👏
+              </li>
+            </ul>
+          </p>
+          <p>
+            Currently there are 
+            <strong>
+              {{totalActiveText}}                      
+            </strong>  
+            people who are actively infected with the coronavirus, 
+            let's <strong>pray</strong> for them to get better soon and follow 
+            <strong class="text-success">
+              {{totalRecoveredPercentText}}
+            </strong> 
+            of those who have recovered 🙏😇
+          </p>
 
-          <b-row align-h="center">
-            <b-col md="6">                  
-              <h1
-                class="font-weight-bold h1-title"                   
-                style="margin-bottom: 0.75rem;
-              ">
-                Coronavirus COVID-19
-              </h1>
-              <p>
-                <strong 
-                  class="text-success"
-                  style="font-size: 150%;"
-                >
-                  {{totalRecoveredPercentText}}
-                </strong>
-                  of
-                <strong>
-                  {{totalClosedText}}
-                </strong>                      
-                  people who have been infected with the coronavirus before, have been 
-                <span class="text-success">
-                  <strong>
-                    recovered!
-                  </strong>
-                </span> 😊
-              </p>
-              <p>
-                Don't spread the fear and believe that humanity can get past this pandemic 💪,
-                but don't forget that  
-                <strong class="text-danger">
-                  {{totalDeathsPercentText}}
-                </strong>
-                <!-- of 
-                  {{totalClosedText}}                      
-                people  -->
-                have died due to this coronavirus 😔 
-              </p>            
-              <p>
-                Cause of that,
-                <ul>
-                  <li>
-                    Stay healthy 💟
-                  </li>
-                  <li>
-                    Apply social distancing ✋
-                  </li>
-                  <li>
-                    Wear masks 😷
-                  </li>
-                  <li>
-                    and regularly wash your hands 👏
-                  </li>
-                </ul>
-              </p>
-              <p>
-                Currently there are 
-                <strong>
-                  {{totalActiveText}}                      
-                </strong>  
-                people who are actively infected with the coronavirus, 
-                let's <strong>pray</strong> for them to get better soon and follow 
-                <strong class="text-success">
-                  {{totalRecoveredPercentText}}
-                </strong> 
-                of those who have recovered 🙏😇
-              </p>
-
-            </b-col>                
-          </b-row>
-
-        </b-card>
+        </b-col>           
       </b-row>  
 
       <Statistic 
@@ -119,9 +100,9 @@
 
       <br />      
 
-    </main>
+    </div>
 
-  </div>
+  </main>
 </template>
 
 <script>
