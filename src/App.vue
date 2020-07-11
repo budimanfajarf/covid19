@@ -37,7 +37,7 @@ export default {
   .wrapper {
     min-height: 100vh;
     position: relative;
-    padding-bottom: 5.25em;    
+    padding-bottom: 5em;    
     padding-top: 1.5em;
   }
 

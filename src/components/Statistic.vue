@@ -10,7 +10,9 @@
           Last updated: 
         </span>
         <span>
-          {{ dateText }}
+          <PuSkeleton width="75px"> 
+            {{ dateText }}
+          </PuSkeleton> 
         </span>
       </b-col>
     </b-row>                
@@ -32,7 +34,9 @@
                 </h5>
 
                 <h2>
-                  {{totalConfirmedText}}
+                  <PuSkeleton width="120px">                
+                    {{totalConfirmedText}}
+                  </PuSkeleton>
                 </h2> 
 
                 <small class="text-muted-2 label-2">Total confirmed cases</small>
@@ -51,7 +55,9 @@
               </h5>
 
               <h2>
-                {{totalActiveText}}
+                <PuSkeleton width="120px">   
+                  {{totalActiveText}}
+                </PuSkeleton>                
               </h2> 
 
               <small class="text-muted-2 label-2">Currently Infected Patients</small>
@@ -71,7 +77,9 @@
                     Closed Cases
                   </h5>
                   <h2>
-                    {{totalClosedText}}
+                    <PuSkeleton width="120px">
+                      {{totalClosedText}}
+                    </PuSkeleton>
                   </h2>    
                   <small class="text-muted-2 label-2">Cases which had an outcome</small>
                 </b-col>                        
@@ -86,10 +94,14 @@
                     Recovered
                   </h4>
                   <h1 style="margin-top: 0px;" class="display-3 text-success font-weight-bold">
-                    {{totalRecoveredPercentText}}
+                    <PuSkeleton width="200px"> 
+                      {{totalRecoveredPercentText}}
+                    </PuSkeleton> 
                   </h1> 
-                  <h2 style="margin-top: -15px">
-                    {{totalRecoveredText}}
+                  <h2 style="margin-top: -12.5px">
+                    <PuSkeleton width="200px">   
+                      {{totalRecoveredText}}
+                    </PuSkeleton>
                   </h2>   
                 </b-col>   
                 
@@ -99,10 +111,14 @@
                     Deaths
                   </h5>
                   <h1 style="margin-top: 0px;" class="display-4 text-danger font-weight-bold">
-                    {{totalDeathsPercentText}}
+                    <PuSkeleton width="150px"> 
+                      {{totalDeathsPercentText}}
+                    </PuSkeleton>
                   </h1>   
                   <h4 style="margin-top: -12.5px;">
-                    {{totalDeathsText}}
+                    <PuSkeleton width="150px"> 
+                      {{totalDeathsText}}
+                    </PuSkeleton>
                   </h4>   
                 </b-col>    
 

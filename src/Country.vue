@@ -1,18 +1,16 @@
 <template>
   <main>
-    <LoadingContent v-if="!isLoaded" />
-
     <ErrorContent 
       v-if="isLoaded && error" 
       v-bind:error="error" 
     />    
 
-    <div v-if="isLoaded && !error">
+    <div v-if="!error">
 
       <b-row align-h="center">
         <b-col md="6">
-
           <v-select 
+            v-if="isLoaded"
             class="style-chooser"
             placeholder="Where are you from?"
             :options="countries"
@@ -24,18 +22,17 @@
           >
           </v-select>
 
-          <br />
+          <div v-else style="margin-top: 0.25rem; margin-bottom: 0.1rem">
+            <PuSkeleton height="42.5px">
+            </PuSkeleton> 
+          </div>
 
-          <h1 v-if="isLoadedCountry" class="h1-title">
-            COVID-19 in {{ selectedCountry.country }}
-          </h1>
+          <br />
         </b-col>                
       </b-row>
 
-      <LoadingContent v-if="isCallCountry" />
-
       <Statistic 
-        v-if="isLoadedCountry && !isCallCountry"
+        v-if="selectedCountry"
         v-bind:dateText="dateText"
         v-bind:totalConfirmedText="totalConfirmedText" 
         v-bind:totalActiveText="totalActiveText"
@@ -46,11 +43,11 @@
         v-bind:totalDeathsPercentText="totalDeathsPercentText"          
       />
 
-      <b-row v-if="isLoadedCountry" style="font-size: 100%; letter-spacing: 0.25px;" class="text-left" align-h="center">
-        <b-col md="6">
-          <router-link to="/" style="position: relative; color: #3b3e48">
-            <svg style="position: absolute; left: 5px;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>            
-            <span style="padding-left: 30px;">
+      <b-row align-h="center">
+        <b-col md="6" class="nav-bottom">
+          <router-link to="/">
+            <svg style="left: 5px;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>            
+            <span>
               SEE GLOBAL DATA
             </span>
           </router-link>
@@ -66,7 +63,6 @@
 
 <script>
 import axios from 'axios';
-import LoadingContent from './components/LoadingContent.vue';
 import ErrorContent from './components/ErrorContent.vue';
 import Statistic from './components/Statistic.vue';
 import numberFormat from './mixins/numberFormat.js';
@@ -76,33 +72,36 @@ export default {
   name: 'Country',
   mixins: [numberFormat, dateFormat],
   components: {
-    LoadingContent,
     ErrorContent,
     Statistic
   },
+  metaInfo () {
+    return {
+      title: this.title
+    }
+  },  
   data () {
     return {
+      title: 'Country',
       isLoaded: false,
       error: null,
       selectedCountry: null,
       countries: [],
       isCallCountry: false,
       isLoadedCountry: false,
-      country: {
-        totalConfirmed: 0,
-        totalActive: 0,
-        totalClosed: 0,
-        totalRecovered: 0,
-        totalRecoveredPercent: 0,
-        totalDeaths: 0,
-        totalDeathsPercent: 0,
-        newConfirmed: 0,
-        newRecovered: 0,
-        newDeaths: 0,
-        date: new Date().toDateString()
-      },      
       localStorageCountry: null,
-      title: 'Country',
+      country: null,
+      totalConfirmedText: null,
+      totalActiveText: null,
+      totalClosedText: null,
+      totalRecoveredText: null,
+      totalRecoveredPercentText: null,
+      totalDeathsText: null,
+      totalDeathsPercentText: null,
+      newConfirmedText: null,
+      newRecoveredText: null,
+      newDeathsText: null,
+      dateText: null      
     }
   },
   methods: {
@@ -133,6 +132,7 @@ export default {
         });      
     },
     getCountry(slug) {
+      this.country = null;
       axios
         .get(`https://api.covid19.budidev.com/v1/countries/${slug}`)
         .then((response) => {
@@ -147,41 +147,6 @@ export default {
           this.isLoadedCountry = true;
           this.isCallCountry = false;
         });      
-    }
-  },
-  computed: {
-    totalConfirmedText() {
-      return this.numberWithCommas(this.country.totalConfirmed);
-    },
-    totalActiveText() {
-      return this.numberWithCommas(this.country.totalActive);
-    },
-    totalClosedText() {
-      return this.numberWithCommas(this.country.totalClosed);
-    },
-    totalRecoveredText() {
-      return this.numberWithCommas(this.country.totalRecovered);
-    },
-    totalRecoveredPercentText() {
-      return this.numberWithPercent(this.country.totalRecoveredPercent);
-    },
-    totalDeathsText() {
-      return this.numberWithCommas(this.country.totalDeaths);
-    },
-    totalDeathsPercentText() {
-      return this.numberWithPercent(this.country.totalDeathsPercent);
-    },
-    newConfirmedText() {
-      return this.numberWithCommas(this.country.newConfirmed);
-    },
-    newRecoveredText() {
-      return this.numberWithCommas(this.country.newRecovered);
-    },
-    newDeathsText() {
-      return this.numberWithCommas(this.country.newDeaths);
-    },
-    dateText() {
-      return this.fullDate(this.country.date);
     }
   },
   mounted () {
@@ -218,11 +183,33 @@ export default {
       } else {
         this.title = 'Country'; 
       }
-    }
-  },  
-  metaInfo () {
-    return {
-      title: this.title
+    },
+    country(newCountry) {
+      if (newCountry) {
+        this.totalConfirmedText = this.numberWithCommas(this.country.totalConfirmed);
+        this.totalActiveText = this.numberWithCommas(this.country.totalActive);
+        this.totalClosedText = this.numberWithCommas(this.country.totalClosed);
+        this.totalRecoveredText = this.numberWithCommas(this.country.totalRecovered);
+        this.totalRecoveredPercentText = this.numberWithPercent(this.country.totalRecoveredPercent);
+        this.totalDeathsText = this.numberWithCommas(this.country.totalDeaths);
+        this.totalDeathsPercentText = this.numberWithPercent(this.country.totalDeathsPercent);
+        this.newConfirmedText = this.numberWithCommas(this.country.newConfirmed);
+        this.newRecoveredText = this.numberWithCommas(this.country.newRecovered);
+        this.newDeathsText = this.numberWithCommas(this.country.newDeaths);
+        this.dateText = this.fullDate(this.country.date);
+      } else {
+        this.totalConfirmedText = null;
+        this.totalActiveText = null;
+        this.totalClosedText = null;
+        this.totalRecoveredText = null;
+        this.totalRecoveredPercentText = null;
+        this.totalDeathsText = null;
+        this.totalDeathsPercentText = null;
+        this.newConfirmedText = null;
+        this.newRecoveredText = null;
+        this.newDeathsText = null;
+        this.dateText = null;       
+      }
     }
   }
 };

@@ -1,17 +1,10 @@
-// mixin.js file
 export default {
-  created: function () {
-    // this.hello();
-  },
   data() {
     return {
       months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     }
   },
   methods: {
-    hello: function () {
-      console.log('hello from mixin date!')
-    },
     fullDateWithHours(date) {
       const d = new Date(date);
       const months = this.months;      

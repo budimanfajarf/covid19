@@ -2,18 +2,18 @@
  
 module.exports = [
   {
-      path: '/',
-      name: 'Global',
-      component: () => import(/* webpackChunkName: "home" */ './Global')
+    path: '/',
+    name: 'Main',
+    component: () => import(/* webpackChunkName: "Global" */ './Global')
   },
   {
-      path: '/country',
-      name: 'Country',
-      component: () => import(/* webpackChunkName: "about" */ './Country')
+    path: '/country',
+    name: 'Country',
+    component: () => import(/* webpackChunkName: "Country" */ './Country')
   },
   {
     path: '*',
     name: 'NotFound',
-    component: () => import(/* webpackChunkName: "about" */ './NotFound')
+    component: () => import(/* webpackChunkName: "NotFound" */ './NotFound')
   },  
 ]

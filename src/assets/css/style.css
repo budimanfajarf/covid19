@@ -69,6 +69,25 @@ a:hover {
   color: #FF7043!important;
 }
 
+
+.nav-bottom {
+  margin-top: 0.5rem;
+  letter-spacing: 0.25px;
+}
+
+.nav-bottom a {
+  position: relative; 
+  color: #3b3e48;
+}
+
+.nav-bottom span {
+  padding: 0 30px;  
+}
+
+.nav-bottom svg {
+  position: absolute;
+}
+
 @media only screen and (max-width: 576px) {
   .h1-title {
     font-size: 8vw; 

@@ -1,9 +1,9 @@
 
 module.exports = Date.prototype.toIsoString = function() {
-  var tzo = -this.getTimezoneOffset(),
+  const tzo = -this.getTimezoneOffset(),
       dif = tzo >= 0 ? '+' : '-',
       pad = function(num) {
-          var norm = Math.floor(Math.abs(num));
+          const norm = Math.floor(Math.abs(num));
           return (norm < 10 ? '0' : '') + norm;
       };
   return this.getFullYear() +

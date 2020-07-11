@@ -4,7 +4,7 @@
       <b-col md="6">
           <router-link 
             to="/" 
-            :class="currentRoute == 'index' ? 'active': ''"
+            :class="currentRoute == 'Main' ? 'active': ''"
           >GLOBAL</router-link> 
           
           <!-- / -->
@@ -12,7 +12,7 @@
 
           <router-link 
             to="country"
-            :class="currentRoute == 'country' ? 'active': ''"
+            :class="currentRoute == 'Country' ? 'active': ''"
           >COUNTRY</router-link>
       </b-col>
     </b-row>      
@@ -53,7 +53,7 @@ export default {
 
   nav {
     text-align: right;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     margin-right: 1rem;
   }
 
