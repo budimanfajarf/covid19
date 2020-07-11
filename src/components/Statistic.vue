@@ -10,7 +10,7 @@
           Last updated: 
         </span>
         <span>
-          <PuSkeleton width="75px"> 
+          <PuSkeleton width="80px"> 
             {{ dateText }}
           </PuSkeleton> 
         </span>

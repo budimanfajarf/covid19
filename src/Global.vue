@@ -1,77 +1,102 @@
 <template>
   <main>
-    <LoadingContent v-if="!isLoaded" />
 
     <ErrorContent 
       v-if="isLoaded && error" 
       v-bind:error="error" 
     />    
 
-    <div v-if="isLoaded && !error">
+    <div v-if="!error">
 
       <b-row align-h="center">
         <b-col md="6">                  
           <h1 class="h1-title">
             Coronavirus COVID-19
           </h1>
-          <p>
-            <strong 
-              class="text-success"
-              style="font-size: 150%;"
-            >
-              {{totalRecoveredPercentText}}
-            </strong>
-              of
-            <strong>
-              {{totalClosedText}}
-            </strong>                      
-              people who have been infected with the coronavirus before, have been 
-            <span class="text-success">
-              <strong>
-                recovered!
+
+          <div v-if="isLoaded">
+            <p>
+              <strong 
+                class="text-success"
+                style="font-size: 150%;"
+              >
+                {{totalRecoveredPercentText}}
               </strong>
-            </span> 😊
-          </p>
-          <p>
-            Don't spread the fear and believe that humanity can get past this pandemic 💪,
-            but don't forget that  
-            <strong class="text-danger">
-              {{totalDeathsPercentText}}
-            </strong>
-            <!-- of 
-              {{totalClosedText}}                      
-            people  -->
-            have died due to this coronavirus 😔 
-          </p>            
-          <p>
-            Cause of that,
-            <ul>
-              <li>
-                Stay healthy 💟
-              </li>
-              <li>
-                Apply social distancing ✋
-              </li>
-              <li>
-                Wear masks 😷
-              </li>
-              <li>
-                and regularly wash your hands 👏
-              </li>
-            </ul>
-          </p>
-          <p>
-            Currently there are 
-            <strong>
-              {{totalActiveText}}                      
-            </strong>  
-            people who are actively infected with the coronavirus, 
-            let's <strong>pray</strong> for them to get better soon and follow 
-            <strong class="text-success">
-              {{totalRecoveredPercentText}}
-            </strong> 
-            of those who have recovered 🙏😇
-          </p>
+                of
+              <strong>
+                {{totalClosedText}}
+              </strong>                      
+                people who have been infected with the coronavirus before, have been 
+              <span class="text-success">
+                <strong>
+                  recovered!
+                </strong>
+              </span> 😊
+            </p>
+            <p>
+              Don't spread the fear and believe that humanity can get past this pandemic 💪,
+              but don't forget that  
+              <strong class="text-danger">
+                {{totalDeathsPercentText}}
+              </strong>
+              have died due to this coronavirus 😔 
+            </p>            
+            <p>
+              Cause of that,
+              <ul>
+                <li>
+                  Stay healthy 💟
+                </li>
+                <li>
+                  Apply social distancing ✋
+                </li>
+                <li>
+                  Wear masks 😷
+                </li>
+                <li>
+                  and regularly wash your hands 👏
+                </li>
+              </ul>
+            </p>
+            <p>
+              Currently there are 
+              <strong>
+                {{totalActiveText}}                      
+              </strong>  
+              people who are actively infected with the coronavirus, 
+              let's <strong>pray</strong> for them to get better soon and follow 
+              <strong class="text-success">
+                {{totalRecoveredPercentText}}
+              </strong> 
+              of those who have recovered 🙏😇
+            </p>
+          </div>
+
+          <div v-else>
+            <p>
+              <strong 
+                class="text-success"
+                style="font-size: 150%;"
+              >
+              <PuSkeleton width="10%" /> 
+              </strong>
+              <PuSkeleton style="margin-left: 3%" width="87%" />
+              <PuSkeleton />
+            </p>
+            <p>
+              <PuSkeleton :count="3" />
+            </p>            
+            <p>
+              <PuSkeleton width="35%" />
+              <ul>
+                <PuSkeleton :count="4" width="65%" />
+              </ul>
+            </p>
+            <p>
+              <PuSkeleton :count="3">
+              </PuSkeleton>
+            </p>
+          </div>
 
         </b-col>           
       </b-row>  
@@ -107,7 +132,6 @@
 
 <script>
 import axios from 'axios';
-import LoadingContent from './components/LoadingContent.vue';
 import ErrorContent from './components/ErrorContent.vue';
 import Statistic from './components/Statistic.vue';
 import numberFormat from './mixins/numberFormat.js';
@@ -117,50 +141,28 @@ export default {
   name: 'Global',
   mixins: [numberFormat, dateFormat],
   components: {
-    LoadingContent,
     ErrorContent,
     Statistic
   },
+  metaInfo: {
+    title: 'Global'
+  },  
   data () {
     return {
-      global: {},
       isLoaded: false,
-      error: null
-    }
-  },
-  computed: {
-    totalConfirmedText() {
-      return this.numberWithCommas(this.global.totalConfirmed);
-    },
-    totalActiveText() {
-      return this.numberWithCommas(this.global.totalActive);
-    },
-    totalClosedText() {
-      return this.numberWithCommas(this.global.totalClosed);
-    },
-    totalRecoveredText() {
-      return this.numberWithCommas(this.global.totalRecovered);
-    },
-    totalRecoveredPercentText() {
-      return this.numberWithPercent(this.global.totalRecoveredPercent);
-    },
-    totalDeathsText() {
-      return this.numberWithCommas(this.global.totalDeaths);
-    },
-    totalDeathsPercentText() {
-      return this.numberWithPercent(this.global.totalDeathsPercent);
-    },
-    newConfirmedText() {
-      return this.numberWithCommas(this.global.newConfirmed);
-    },
-    newRecoveredText() {
-      return this.numberWithCommas(this.global.newRecovered);
-    },
-    newDeathsText() {
-      return this.numberWithCommas(this.global.newDeaths);
-    },
-    dateText() {
-      return this.fullDate(this.global.date);
+      error: null,
+      global: null,
+      totalConfirmedText: null,
+      totalActiveText: null,
+      totalClosedText: null,
+      totalRecoveredText: null,
+      totalRecoveredPercentText: null,
+      totalDeathsText: null,
+      totalDeathsPercentText: null,
+      newConfirmedText: null,
+      newRecoveredText: null,
+      newDeathsText: null,
+      dateText: null      
     }
   },
   mounted () {
@@ -179,9 +181,35 @@ export default {
         // this.error = "something error";
       });
   },
-  metaInfo: {
-    title: 'Global'
-  } 
+  watch: {
+    global(newGlobal) {
+      if (newGlobal) {
+        this.totalConfirmedText = this.numberWithCommas(newGlobal.totalConfirmed);
+        this.totalActiveText = this.numberWithCommas(newGlobal.totalActive);
+        this.totalClosedText = this.numberWithCommas(newGlobal.totalClosed);
+        this.totalRecoveredText = this.numberWithCommas(newGlobal.totalRecovered);
+        this.totalRecoveredPercentText = this.numberWithPercent(newGlobal.totalRecoveredPercent);
+        this.totalDeathsText = this.numberWithCommas(newGlobal.totalDeaths);
+        this.totalDeathsPercentText = this.numberWithPercent(newGlobal.totalDeathsPercent);
+        this.newConfirmedText = this.numberWithCommas(newGlobal.newConfirmed);
+        this.newRecoveredText = this.numberWithCommas(newGlobal.newRecovered);
+        this.newDeathsText = this.numberWithCommas(newGlobal.newDeaths);
+        this.dateText = this.fullDate(newGlobal.date);
+      } else {
+        this.totalConfirmedText = null;
+        this.totalActiveText = null;
+        this.totalClosedText = null;
+        this.totalRecoveredText = null;
+        this.totalRecoveredPercentText = null;
+        this.totalDeathsText = null;
+        this.totalDeathsPercentText = null;
+        this.newConfirmedText = null;
+        this.newRecoveredText = null;
+        this.newDeathsText = null;
+        this.dateText = null;       
+      }
+    }    
+  }  
 };
 </script>
 

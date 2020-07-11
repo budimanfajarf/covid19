@@ -4,7 +4,7 @@
       <b-row align-v="center" >      
         <b-col class="wrapper">
 
-          <Nav2 />
+          <Nav />
           <router-view></router-view>
           <Footer /> 
 
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import Nav2 from './partials/Nav2.vue';
+import Nav from './partials/Nav.vue';
 import Footer from './partials/Footer.vue';
 
 export default {
   name: 'App',
   components: {
-    Nav2,    
+    Nav,    
     Footer
   },
   metaInfo: {
