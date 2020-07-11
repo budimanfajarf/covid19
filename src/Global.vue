@@ -10,7 +10,7 @@
     <div v-if="!error">
 
       <b-row align-h="center">
-        <b-col md="6">                  
+        <b-col md="6" style="margin-top: 0.5rem;">
           <h1 class="h1-title">
             Coronavirus COVID-19
           </h1>
