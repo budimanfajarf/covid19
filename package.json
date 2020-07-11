@@ -1,6 +1,6 @@
 {
   "name": "coronavirus-covid19",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,7 +9,6 @@
     "sitemap": "vue-cli-service sitemap"
   },
   "dependencies": {
-    "animated-number-vue": "^1.0.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",

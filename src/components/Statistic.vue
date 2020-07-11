@@ -34,7 +34,7 @@
                 </h5>
 
                 <h2>
-                  <PuSkeleton width="120px">                
+                  <PuSkeleton width="175px">                
                     {{totalConfirmedText}}
                   </PuSkeleton>
                 </h2> 
@@ -55,7 +55,7 @@
               </h5>
 
               <h2>
-                <PuSkeleton width="120px">   
+                <PuSkeleton width="175px">   
                   {{totalActiveText}}
                 </PuSkeleton>                
               </h2> 
@@ -77,7 +77,7 @@
                     Closed Cases
                   </h5>
                   <h2>
-                    <PuSkeleton width="120px">
+                    <PuSkeleton width="175px">
                       {{totalClosedText}}
                     </PuSkeleton>
                   </h2>    

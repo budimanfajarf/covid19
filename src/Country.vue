@@ -9,20 +9,22 @@
 
       <b-row align-h="center">
         <b-col md="6">
-          <v-select 
-            v-if="isLoaded"
-            class="style-chooser"
-            placeholder="Where are you from?"
-            :options="countries"
-            label="country"                           
-            v-model="selectedCountry"
-            :value="selectedCountry" 
-            @input="handleSearchCountry"
-            style="margin-top: 0.5rem;"
-          >
-          </v-select>
+          <transition name="fade" mode="out-in">
+            <v-select 
+              v-if="isLoaded"
+              class="style-chooser"
+              placeholder="Where are you from?"
+              :options="countries"
+              label="country"                           
+              v-model="selectedCountry"
+              :value="selectedCountry" 
+              @input="handleSearchCountry"
+              style="margin-top: 0.5rem;"
+            >
+            </v-select>
+          </transition>
 
-          <div v-else style="margin-top: 0.25rem;">
+          <div v-if="!isLoaded" style="margin-top: 0.25rem;">
             <PuSkeleton height="42.5px">
             </PuSkeleton> 
           </div>

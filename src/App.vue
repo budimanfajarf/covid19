@@ -5,7 +5,11 @@
         <b-col class="wrapper">
 
           <Nav />
-          <router-view></router-view>
+          
+          <transition name="fade" mode="out-in">
+            <router-view></router-view>
+          </transition>
+
           <Footer /> 
 
         </b-col>
