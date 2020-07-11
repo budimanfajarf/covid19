@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9fdf6408-e839-4db9-a636-9379f75b1e42/deploy-status)](https://app.netlify.com/sites/bdv-covid19/deploys)
 
-[covid19.budidev.com](https://covid19.budidev.com "Link to Web App")
+Web App: [covid19.budidev.com](https://covid19.budidev.com "Link to Web App")
 
 ```
 {

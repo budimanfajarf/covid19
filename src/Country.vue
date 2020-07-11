@@ -1,9 +1,11 @@
 <template>
   <main>
-    <ErrorContent 
-      v-if="isLoaded && error" 
-      v-bind:error="error" 
-    />    
+    <transition name="fade" mode="out-in">    
+      <ErrorContent 
+        v-if="isLoaded && error" 
+        v-bind:error="error" 
+      />    
+    </transition>
 
     <div v-if="!error">
 
@@ -148,6 +150,7 @@ export default {
         .finally(() => {
           this.isLoadedCountry = true;
           this.isCallCountry = false;
+          // this.error = "something error";          
         });      
     }
   },

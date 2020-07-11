@@ -34,7 +34,7 @@
                 </h5>
 
                 <h2>
-                  <PuSkeleton width="175px">                
+                  <PuSkeleton width="150px">                
                     {{totalConfirmedText}}
                   </PuSkeleton>
                 </h2> 
@@ -55,7 +55,7 @@
               </h5>
 
               <h2>
-                <PuSkeleton width="175px">   
+                <PuSkeleton width="150px">   
                   {{totalActiveText}}
                 </PuSkeleton>                
               </h2> 
@@ -77,7 +77,7 @@
                     Closed Cases
                   </h5>
                   <h2>
-                    <PuSkeleton width="175px">
+                    <PuSkeleton width="150px">
                       {{totalClosedText}}
                     </PuSkeleton>
                   </h2>    
@@ -94,12 +94,12 @@
                     Recovered
                   </h4>
                   <h1 style="margin-top: 0px;" class="display-3 text-success font-weight-bold">
-                    <PuSkeleton width="200px"> 
+                    <PuSkeleton width="175px"> 
                       {{totalRecoveredPercentText}}
                     </PuSkeleton> 
                   </h1> 
                   <h2 style="margin-top: -12.5px">
-                    <PuSkeleton width="200px">   
+                    <PuSkeleton width="175px">   
                       {{totalRecoveredText}}
                     </PuSkeleton>
                   </h2>   
@@ -111,12 +111,12 @@
                     Deaths
                   </h5>
                   <h1 style="margin-top: 0px;" class="display-4 text-danger font-weight-bold">
-                    <PuSkeleton width="150px"> 
+                    <PuSkeleton width="125px"> 
                       {{totalDeathsPercentText}}
                     </PuSkeleton>
                   </h1>   
                   <h4 style="margin-top: -12.5px;">
-                    <PuSkeleton width="150px"> 
+                    <PuSkeleton width="125px"> 
                       {{totalDeathsText}}
                     </PuSkeleton>
                   </h4>   

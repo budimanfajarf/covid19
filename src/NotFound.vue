@@ -1,5 +1,5 @@
 <template>
-  <b-row align-h="center" align-v="center" style="min-height: 65vh; letter-spacing: 1.5px;">
+  <b-row align-h="center" align-v="center" style="min-height: 55vh; letter-spacing: 1.5px;">
     <b-col md="6">   
       <b-alert show variant="secondary" class="text-center">
         <br />
@@ -20,3 +20,9 @@ export default {
   name: 'Not Found'
 }
 </script>
+
+<style scoped>
+  a {
+    text-decoration: underline;
+  }
+</style>

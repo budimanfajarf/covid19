@@ -1,5 +1,6 @@
 <template>   
-  <b-row align-h="center" align-v="center" style="min-height: 65vh; letter-spacing: 1.5px">
+  <transition name="fade" mode="out-in">
+  <b-row align-h="center" align-v="center" style="min-height: 55vh; letter-spacing: 1.5px">
     <b-col md="6">   
       <b-alert show variant="secondary" class="text-center">
         <br />
@@ -13,6 +14,7 @@
      </b-alert>      
     </b-col>
   </b-row>   
+  </transition>
 </template>
 
 <script>
@@ -23,3 +25,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  a {
+    text-decoration: underline;
+  }
+</style>

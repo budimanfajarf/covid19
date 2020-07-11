@@ -1,10 +1,11 @@
 <template>
   <main>
-
-    <ErrorContent 
-      v-if="isLoaded && error" 
-      v-bind:error="error" 
-    />    
+    <transition name="fade" mode="out-in">
+      <ErrorContent 
+        v-if="isLoaded && error" 
+        v-bind:error="error" 
+      />    
+    </transition>
 
     <div v-if="!error">
 
@@ -178,7 +179,7 @@ export default {
       })
       .finally(() => {
         this.isLoaded = true;
-        // this.error = "something error";
+        // this.error = "421 something error";
       });
   },
   watch: {
