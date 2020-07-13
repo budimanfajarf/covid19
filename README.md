@@ -1,9 +1,14 @@
-## Coronavirus COVID-19
+## Coronavirus COVID-19 Info
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9fdf6408-e839-4db9-a636-9379f75b1e42/deploy-status)](https://app.netlify.com/sites/bdv-covid19/deploys)
+Single page web application about coronavirus / COVID-19, created with Vue.js
 
-Web App: [covid19.budidev.com](https://covid19.budidev.com "Link to Web App")
+#### Link Web App
+- [covid19.budidev.com](https://covid19.budidev.com "Link to Web App")
 
+#### Deploy Info
+- [![Netlify Status](https://api.netlify.com/api/v1/badges/9fdf6408-e839-4db9-a636-9379f75b1e42/deploy-status)](https://app.netlify.com/sites/bdv-covid19/deploys)
+
+#### Packages / Depedencies
 ```
 {
   "name": "coronavirus-covid19",
