@@ -27,7 +27,7 @@
               <strong>
                 {{totalClosedText}}
               </strong>                      
-                people who have been infected with the coronavirus before, have been 
+                people who have been infected with the coronavirus before, have 
               <span class="text-success">
                 <strong>
                   recovered!
